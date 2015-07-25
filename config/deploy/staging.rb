@@ -11,7 +11,7 @@ role :app, %w{root@192.168.56.11}
 role :web, %w{root@192.168.56.11}
 role :db,  %w{root@192.168.56.11}
 
-server '192.168.56.11', user: 'deploy1', roles: %w{app web}
+server '192.168.56.11', user: 'deploy1', roles: %w{app web}, port: 2211
 
 
 # role-based syntax
