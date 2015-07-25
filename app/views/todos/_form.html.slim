@@ -1,0 +1,14 @@
+= form_for @todo do |f|
+  - if @todo.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@todo.errors.count, "error")} prohibited this todo from being saved:"
+      ul
+        - @todo.errors.full_messages.each do |message|
+          li = message
+
+  .field.form-group
+    = f.text_field :item, :class => 'form-control',:placeholder => 'Enter Item'
+  .field.form-group
+    = f.select :status, [['todo','todo'], ['inprogress','inprogress'], ['done','done']], {} ,{:class => 'form-control'}
+  .actions 
+    = f.submit 'Add', :class => 'btn btn-success'

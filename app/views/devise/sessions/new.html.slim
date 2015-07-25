@@ -1,0 +1,25 @@
+
+h2 Log in
+
+= form_for(resource, as: resource_name, url: session_path(resource_name), :html => {:class => "form-horizontal"}) do |f| 
+  .field.form-group
+    .col-md-5
+      = f.email_field :email, autofocus: true, :class => "form-control", :placeholder => "Email"
+
+  .field.form-group
+    .col-md-5
+      = f.password_field :password, autocomplete: "off", :class => "form-control", :placeholder => "Password"
+
+  - if devise_mapping.rememberable? 
+    .field.form-group
+      .col-md-5
+        .checkbox
+          label
+            = f.check_box :remember_me
+            | Remember me
+
+  .actions
+
+    = f.submit "Log in", :class => "btn btn-success"
+
+= render "devise/shared/links"

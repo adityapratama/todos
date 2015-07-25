@@ -1,0 +1,28 @@
+- index_title = t('.title')
+h3 = index_title
+
+table.table.table-bordered.table-condensed
+  thead
+    tr
+      th Id
+      th Item
+      th Status
+      th
+      th
+      th
+
+  tbody
+    - @todos.each do |todo|
+      tr
+        td = todo.id
+        td = todo.item
+        td = todo.status
+        td = link_to 'Show', todo
+        td = link_to 'Edit', edit_todo_path(todo)
+        td = link_to 'Destroy', todo, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to new_todo_path, :class => 'btn btn-success' do
+  <i class='fa fa-plus-square'></i>  New Todo
+    
